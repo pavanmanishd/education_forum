@@ -8,7 +8,7 @@ export default function handler(req, res) {
     console.log(Qid);
     if (req.method === 'GET') {
         connection.query(
-            `SELECT * FROM answers where Qid = '${Qid}' limit 10`,
+            `SELECT * FROM comments where Qid = '${Qid}' limit 10`,
             function (err, results, fields) {
                 res.status(200).json(results)
             }
@@ -16,8 +16,9 @@ export default function handler(req, res) {
     }
     else if (req.method === 'POST') {
         const { Aid, answer, username } = req.body;
+        console.log(Aid, answer, username, Qid);
         connection.query(
-            'INSERT INTO answers (Qid, Aid, answer,username) VALUES (?,?, ?, ?)',
+            'INSERT INTO comments (Qid, Aid, answer,username) VALUES (?,?, ?, ?)',
             [Qid, Aid, answer, username],
             function (err, results, fields) {
                 res.status(200).json(results);
@@ -27,7 +28,7 @@ export default function handler(req, res) {
     else if (req.method === 'PUT') {
         const { Aid, answer, username } = req.body;
         connection.query(
-            'UPDATE answers SET answer = ? WHERE Aid = ?',
+            'UPDATE comments SET answer = ? WHERE Aid = ?',
             [answer, Aid],
             function (err, results, fields) {
                 res.status(200).json(results);
@@ -37,7 +38,7 @@ export default function handler(req, res) {
     else if (req.method === 'DELETE') {
         const { Aid } = req.body;
         connection.query(
-            'DELETE FROM answers WHERE Aid = ?',
+            'DELETE FROM comments WHERE Aid = ?',
             [Aid],
             function (err, results, fields) {
                 res.status(200).json(results);
