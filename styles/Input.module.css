@@ -41,4 +41,5 @@
     line-height: 1.5;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     margin-top: 1rem;
+    cursor: pointer;
 }

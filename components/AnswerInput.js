@@ -1,9 +1,10 @@
 import { nanoid } from "nanoid";
 import React from "react";
 import styles from "@/styles/Input.module.css";
-
+import { useUser } from "@clerk/nextjs";
 export default function AnswerInput({ qid, handleClick }) {
     const [answer, setAnswer] = React.useState("");
+    const { isLoaded, isSignedIn, user } = useUser();
     console.log(qid)
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -13,7 +14,7 @@ export default function AnswerInput({ qid, handleClick }) {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ Qid: qid, Aid: nanoid(), answer, username: "test" }),
+            body: JSON.stringify({ Qid: qid, Aid: nanoid(), answer, username: (isLoaded && isSignedIn) ? user.username : "unknown" }),
         })
         setAnswer("");
         handleClick();
