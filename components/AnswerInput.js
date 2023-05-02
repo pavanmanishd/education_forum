@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid";
 import React from "react";
 
-export default function AnswerInput({ qid }) {
+export default function AnswerInput({ qid, handleClick }) {
     const [answer, setAnswer] = React.useState("");
     console.log(qid)
     const handleSubmit = (e) => {
@@ -15,6 +15,7 @@ export default function AnswerInput({ qid }) {
             body: JSON.stringify({ Qid: qid, Aid: nanoid(), answer, username: "test" }),
         })
         setAnswer("");
+        handleClick();
     };
 
     const handleChange = (e) => {

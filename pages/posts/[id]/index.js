@@ -3,13 +3,18 @@ import AnswerInput from '@/components/AnswerInput';
 import axios from 'axios';
 
 export default function Post({ post }) {
+    const [answers, setAnswers] = React.useState(post.answers);
+    const handleClick = async () => {
+        const res = await axios.get(`http://localhost:3000/api/answers/${post.Qid}`)
+        setAnswers(res.data)
+    }
     return (
         <div>
             <h1>{post.question}</h1>
             <p>{post.username}</p>
-            <AnswerInput qid={post.Qid} />
+            <AnswerInput qid={post.Qid} handleClick={handleClick}/>
             <ul>
-                {post.answers.map((anwser) => (
+                {answers.map((anwser) => (
                     <li key={anwser.Aid}>
                         <p>{anwser.answer}</p>
                         <p>{anwser.username}</p>
