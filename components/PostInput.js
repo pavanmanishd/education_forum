@@ -1,4 +1,5 @@
 import { nanoid } from "nanoid";
+import styles from "@/styles/Input.module.css";
 import React, { useState } from "react";
 export default function PostInput({ handleClick }) {
     const [question, setQuestion] = useState("");
@@ -24,8 +25,11 @@ export default function PostInput({ handleClick }) {
 
     return (
         <>
-            <input type="text" placeholder="Ask Anything..." onChange={handleChange} value={question} />
-            <button onClick={handleSubmit}>Submit</button>
+        <label htmlFor="question" className={styles.label} >Question:</label>
+        <div className={styles.inputContainer}>
+            <input type="text" id="question" placeholder="Ask Anything..." onChange={handleChange} value={question} className={styles.input} />
+            <button onClick={handleSubmit} className={styles.button} >Submit</button>
+        </div>
         </>
     );
 }

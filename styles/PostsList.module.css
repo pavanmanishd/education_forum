@@ -1,0 +1,11 @@
+.heading{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+.postsContainer{
+    width: 60vw;
+    margin: 2rem auto;
+    padding: 0rem;
+}

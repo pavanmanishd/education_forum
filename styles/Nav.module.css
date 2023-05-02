@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+
 .nav{
+    font-family: 'Outfit';
     display: flex;
     justify-content: space-between;
     align-items: center;

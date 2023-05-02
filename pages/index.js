@@ -13,12 +13,12 @@ export default function Home({posts}) {
     setPostList(posts)
   }
   return (
-    <>
-      <div>
+    <div className={styles.main}>
+      <div className={styles.postContainer}>
         <PostInput handleClick={handleClick} />
         <PostsList posts={postList} />
       </div>
-    </>
+    </div>
   )
 }
 

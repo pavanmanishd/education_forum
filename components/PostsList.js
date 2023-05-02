@@ -1,15 +1,16 @@
 import PostItem from "./PostItem";
-
+import styles from "@/styles/PostsList.module.css";
 export default function PostsList({posts}) {
     return (
-        <>
-            <h1>Posts</h1>
-            <ul>
+        <div className={styles.postsContainer}>
+            <h1 className={styles.heading}>Posts</h1>
+            <hr />
+            <div>
                 {posts.map((post) => (
                     <PostItem post={post} />
                 ))}
-            </ul>
-        </>
+            </div>
+        </div>
     );
 }
 

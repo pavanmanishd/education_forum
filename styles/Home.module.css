@@ -1,9 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+
+.postContainer{
+  width: 60vw;
+  margin: 0 auto;
+  /* padding: 2rem 0; */
+}
+
 .main {
+  font-family: 'Outfit';
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem;
   min-height: 100vh;
 }
 

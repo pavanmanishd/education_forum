@@ -1,5 +1,6 @@
 import { nanoid } from "nanoid";
 import React from "react";
+import styles from "@/styles/Input.module.css";
 
 export default function AnswerInput({ qid, handleClick }) {
     const [answer, setAnswer] = React.useState("");
@@ -25,9 +26,9 @@ export default function AnswerInput({ qid, handleClick }) {
     return (
         <div>
             <form>
-                <label htmlFor="answer">Answer:</label>
-                <input type="text" id="answer" name="answer" onChange={handleChange} value={answer} />
-                <button type="submit" onClick={handleSubmit}>Submit</button>
+                <label htmlFor="answer" className={styles.label} >Answer:</label>
+                <input type="text" id="answer" name="answer" onChange={handleChange} value={answer} className={styles.input} />
+                <button type="submit" onClick={handleSubmit} className={styles.button} >Submit</button>
             </form>
         </div>
     );
