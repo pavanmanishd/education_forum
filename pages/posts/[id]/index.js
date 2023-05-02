@@ -1,6 +1,6 @@
 import React from 'react';
-import {answers} from '@/data'
 import AnswerInput from '@/components/AnswerInput';
+import axios from 'axios';
 
 export default function Post({ post }) {
     return (
@@ -33,11 +33,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const res = await fetch(`http://localhost:3000/api/posts/${params.id}`)
-    const post = await res.json()
-    // const res2 = await fetch(`http://localhost:3000/api/anwsers/${params.id}`)
-    // const anwsers = await res2.json()
-    // post.answers = anwsers
+    const res = await axios.get(`http://localhost:3000/api/posts/${params.id}`)
+    const post = res.data
+    const res2 = await axios.get(`http://localhost:3000/api/answers/${params.id}`)
+    const answers = res2.data
     post.answers = answers.filter((answer) => answer.Qid === params.id)
     return { props: { post } }
 }

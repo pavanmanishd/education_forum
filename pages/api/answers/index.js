@@ -14,4 +14,12 @@ export default function handler(req, res) {
             }
         )
     }
+    else if(req.method === 'GET') {
+        connection.query(
+            `SELECT * FROM comments limit 10`,
+            function(err, results, fields) {
+                res.status(200).json(results)
+            }
+        )
+    }
 }

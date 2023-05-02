@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^1.4.0",
     "dotenv": "^16.0.3",
     "mysql2": "^3.2.4",
     "nanoid": "^4.0.2",
