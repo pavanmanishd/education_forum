@@ -28,7 +28,7 @@ export default function AnswerInput({ qid, handleClick }) {
         <div>
             <form>
                 <label htmlFor="answer" className={styles.label} >Answer:</label>
-                <input type="text" id="answer" name="answer" onChange={handleChange} value={answer} className={styles.input} />
+                <input type="text" placeholder="Type your answer..." id="answer" name="answer" onChange={handleChange} value={answer} className={styles.input} />
                 <button type="submit" onClick={handleSubmit} className={styles.button} >Submit</button>
             </form>
         </div>

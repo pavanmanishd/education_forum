@@ -1,7 +1,8 @@
 import React from 'react';
 import AnswerInput from '@/components/AnswerInput';
 import axios from 'axios';
-
+import AnswersList from '@/components/AnswersList';
+import styles from '@/styles/Post.module.css';
 export default function Post({ post }) {
     const [answers, setAnswers] = React.useState(post.answers);
     const handleClick = async () => {
@@ -9,18 +10,19 @@ export default function Post({ post }) {
         setAnswers(res.data)
     }
     return (
-        <div>
-            <h1>{post.question}</h1>
-            <p>{post.username}</p>
+        <div className={styles.container}>
+            <p className={styles.username}>By : {post.username}</p>
+            <h1 className={styles.heading}>{post.question}</h1>
             <AnswerInput qid={post.Qid} handleClick={handleClick}/>
-            <ul>
+            {/* <ul>
                 {answers.map((anwser) => (
                     <li key={anwser.Aid}>
                         <p>{anwser.answer}</p>
                         <p>{anwser.username}</p>
                     </li>
                 ))}
-            </ul>
+            </ul> */}
+            <AnswersList answers={answers} />
         </div>
     );
 }

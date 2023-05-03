@@ -18,9 +18,6 @@ export default function Nav() {
                 <li className={styles.navElem}>
                     <Link href='/'>Home</Link>
                 </li>
-                {/* <li className={styles.navElem}>
-                    <Link href='/about'>About</Link>
-                </li> */}
                 <li className={styles.navElem}>
                     <h1>Education Forum</h1>
                 </li>

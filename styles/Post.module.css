@@ -1,0 +1,20 @@
+.heading{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+.username{
+    font-size: 1rem;
+    font-weight: 100;
+    margin-bottom: 0.5rem;
+    opacity: 0.75;
+    padding-top: 1rem;
+}
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400&display=swap');
+.container{
+    width: 60vw;
+    margin: 2rem auto;
+    padding: 0rem;
+    font-family: 'Outfit', sans-serif;
+}

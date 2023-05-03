@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid";
 import styles from "@/styles/Input.module.css";
 import React, { useState } from "react";
-import { RedirectToSignIn, useUser } from "@clerk/nextjs";
+import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/router";
 export default function PostInput({ handleClick }) {
     const [question, setQuestion] = useState("");
