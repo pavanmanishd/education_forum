@@ -2,6 +2,7 @@ import { nanoid } from "nanoid";
 import React from "react";
 import styles from "@/styles/Input.module.css";
 import { useUser } from "@clerk/nextjs";
+import axios from "axios";
 export default function AnswerInput({ qid, handleClick }) {
     const [answer, setAnswer] = React.useState("");
     const { isLoaded, isSignedIn, user } = useUser();
@@ -9,13 +10,19 @@ export default function AnswerInput({ qid, handleClick }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(answer);
-        fetch(`http://localhost:3000/api/answers`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ Qid: qid, Aid: nanoid(), answer, username: (isLoaded && isSignedIn) ? user.username : "unknown" }),
-        })
+        // fetch(`http://localhost:3000/api/answers`, {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify({ Qid: qid, Aid: nanoid(), answer, username: (isLoaded && isSignedIn) ? user.username : "unknown" }),
+        // })
+
+        axios.post(`http://localhost:3000/api/answers`, { Qid: qid, Aid: nanoid(), answer, username: (isLoaded && isSignedIn) ? user.username : "unknown" })
+            .then((res) => {
+                console.log(res);
+                console.log(res.data);
+            })
         setAnswer("");
         handleClick();
     };

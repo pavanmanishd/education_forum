@@ -14,32 +14,37 @@ export default function Post({ post }) {
             <p className={styles.username}>By : {post.username}</p>
             <h1 className={styles.heading}>{post.question}</h1>
             <AnswerInput qid={post.Qid} handleClick={handleClick}/>
-            {/* <ul>
-                {answers.map((anwser) => (
-                    <li key={anwser.Aid}>
-                        <p>{anwser.answer}</p>
-                        <p>{anwser.username}</p>
-                    </li>
-                ))}
-            </ul> */}
             <AnswersList answers={answers} />
         </div>
     );
 }
 
 
-export async function getStaticPaths() {
-    const res = await fetch('http://localhost:3000/api/posts')
-    const posts = await res.json()
+// export async function getStaticPaths() {
+//     // const res = await fetch('http://localhost:3000/api/posts')
+//     // const posts = await res.json()
 
-    const paths = posts.map((post) => ({
-        params: { id: post.Qid },
-    }))
+//     const res = await axios.get('http://localhost:3000/api/posts')
+//     const posts = res.data
 
-    return { paths, fallback: false }
-}
+//     const paths = posts.map((post) => ({
+//         params: { id: post.Qid },
+//     }))
 
-export async function getStaticProps({ params }) {
+//     return { paths, fallback: false }
+// }
+
+// export async function getStaticProps({ params }) {
+//     const res = await axios.get(`http://localhost:3000/api/posts/${params.id}`)
+//     const post = res.data
+//     const res2 = await axios.get(`http://localhost:3000/api/answers/${params.id}`)
+//     const answers = res2.data
+//     post.answers = answers.filter((answer) => answer.Qid === params.id)
+//     return { props: { post } }
+// }
+
+
+export async function getServerSideProps({ params }) {
     const res = await axios.get(`http://localhost:3000/api/posts/${params.id}`)
     const post = res.data
     const res2 = await axios.get(`http://localhost:3000/api/answers/${params.id}`)
