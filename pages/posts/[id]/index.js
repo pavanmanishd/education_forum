@@ -3,10 +3,11 @@ import AnswerInput from '@/components/AnswerInput';
 import axios from 'axios';
 import AnswersList from '@/components/AnswersList';
 import styles from '@/styles/Post.module.css';
+import { server } from '@/config';
 export default function Post({ post }) {
     const [answers, setAnswers] = React.useState(post.answers);
     const handleClick = async () => {
-        const res = await axios.get(`http://localhost:3000/api/answers/${post.Qid}`)
+        const res = await axios.get(`${server}/api/answers/${post.Qid}`)
         setAnswers(res.data)
     }
     return (
@@ -45,9 +46,9 @@ export default function Post({ post }) {
 
 
 export async function getServerSideProps({ params }) {
-    const res = await axios.get(`http://localhost:3000/api/posts/${params.id}`)
+    const res = await axios.get(`${server}/api/posts/${params.id}`)
     const post = res.data
-    const res2 = await axios.get(`http://localhost:3000/api/answers/${params.id}`)
+    const res2 = await axios.get(`${server}/api/answers/${params.id}`)
     const answers = res2.data
     post.answers = answers.filter((answer) => answer.Qid === params.id)
     return { props: { post } }

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/router";
 import axios from "axios";
+import { server } from "@/config";
 export default function PostInput({ handleClick }) {
     const [question, setQuestion] = useState("");
     const { isLoaded, isSignedIn, user } = useUser();
@@ -18,7 +19,7 @@ export default function PostInput({ handleClick }) {
             //     },
             //     body: JSON.stringify({ qid: nanoid(), question, username: (isLoaded && isSignedIn) ? user.username : "test" }),
             // })
-            axios.post("http://localhost:3000/api/posts", { qid: nanoid(), question, username: (isLoaded && isSignedIn) ? user.username : "test" })
+            axios.post(`${server}/api/posts`, { qid: nanoid(), question, username: (isLoaded && isSignedIn) ? user.username : "test" })
                 .then((res) => {
                     console.log(res);
                     console.log(res.data);
