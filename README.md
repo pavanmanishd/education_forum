@@ -21,6 +21,15 @@ and teachers.
 - User can create a post
 - User can answer a post
 
+## Under Development
+
+- User can upvote a post
+- User can downvote a post
+- User can upvote an answer
+- User can downvote an answer
+- User can bookmark a post
+
+
 ## Setup Locally
 
 First, run the development server:

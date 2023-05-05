@@ -11,14 +11,6 @@ export default function AnswerInput({ qid, handleClick }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(answer);
-        // fetch(`http://localhost:3000/api/answers`, {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     },
-        //     body: JSON.stringify({ Qid: qid, Aid: nanoid(), answer, username: (isLoaded && isSignedIn) ? user.username : "unknown" }),
-        // })
-
         axios.post(`${server}/api/answers`, { Qid: qid, Aid: nanoid(), answer, username: (isLoaded && isSignedIn) ? user.username : "unknown" })
             .then((res) => {
                 console.log(res);
