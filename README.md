@@ -3,7 +3,7 @@
 - This is a forum for students to ask questions and get answers from other students 
 and teachers.
 
-- Live Demo: [https://education-forum-pavanmanishd.vercel.app/](https://education-forum-pavanmanishd.vercel.app/)
+- Live Demo: [https://education-forum.vercel.app/](https://education-forum.vercel.app/)
 
 ## Tech Stack
 
