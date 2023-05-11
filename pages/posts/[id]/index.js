@@ -20,36 +20,14 @@ export default function Post({ post }) {
     );
 }
 
-
-// export async function getStaticPaths() {
-//     // const res = await fetch('http://localhost:3000/api/posts')
-//     // const posts = await res.json()
-
-//     const res = await axios.get('http://localhost:3000/api/posts')
-//     const posts = res.data
-
-//     const paths = posts.map((post) => ({
-//         params: { id: post.Qid },
-//     }))
-
-//     return { paths, fallback: false }
-// }
-
-// export async function getStaticProps({ params }) {
-//     const res = await axios.get(`http://localhost:3000/api/posts/${params.id}`)
-//     const post = res.data
-//     const res2 = await axios.get(`http://localhost:3000/api/answers/${params.id}`)
-//     const answers = res2.data
-//     post.answers = answers.filter((answer) => answer.Qid === params.id)
-//     return { props: { post } }
-// }
-
-
 export async function getServerSideProps({ params }) {
-    const res = await axios.get(`${server}/api/posts/${params.id}`)
+    // const res = await axios.get(`${server}/api/posts/${params.id}`)
+    // const post = res.data
+    // const res2 = await axios.get(`${server}/api/answers/${params.id}`)
+    // const answers = res2.data
+    // post.answers = answers.filter((answer) => answer.Qid === params.id)
+
+    const res = await axios.get(`${server}/api/postData/${params.id}`)
     const post = res.data
-    const res2 = await axios.get(`${server}/api/answers/${params.id}`)
-    const answers = res2.data
-    post.answers = answers.filter((answer) => answer.Qid === params.id)
     return { props: { post } }
 }
