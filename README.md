@@ -23,6 +23,7 @@ and teachers.
 
 ## Under Development
 
+- Sort Posts by date, upvotes, downvotes 
 - User can upvote a post
 - User can downvote a post
 - User can upvote an answer
