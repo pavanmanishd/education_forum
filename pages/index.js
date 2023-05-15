@@ -8,7 +8,7 @@ import { server } from '@/config';
 export default function Home({posts}) {
   const [postList, setPostList] = React.useState(posts);
   const handleClick = async () => {
-    const res = await axios.get(`${server}/api/posts`)
+    const res = await axios.get(`/api/posts`)
     const posts = res.data
     setPostList(posts)
   }
@@ -27,7 +27,7 @@ export default function Home({posts}) {
 export async function getStaticProps() {
   // const res = await fetch('http://localhost:3000/api/posts')
   // const posts = await res.json()
-  const res = await axios.get(`${server}/api/posts`)
+  const res = await axios.get(`/api/posts`)
   const posts = res.data
 
   return {

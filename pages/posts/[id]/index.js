@@ -7,7 +7,7 @@ import { server } from '@/config';
 export default function Post({ post }) {
     const [answers, setAnswers] = React.useState(post.answers);
     const handleClick = async () => {
-        const res = await axios.get(`${server}/api/answers/${post.Qid}`)
+        const res = await axios.get(`/api/answers/${post.Qid}`)
         setAnswers(res.data)
     }
     return (
@@ -27,7 +27,7 @@ export async function getServerSideProps({ params }) {
     // const answers = res2.data
     // post.answers = answers.filter((answer) => answer.Qid === params.id)
 
-    const res = await axios.get(`${server}/api/postData/${params.id}`)
+    const res = await axios.get(`/api/postData/${params.id}`)
     const post = res.data
     return { props: { post } }
 }

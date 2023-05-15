@@ -19,7 +19,7 @@ export default function PostInput({ handleClick }) {
             //     },
             //     body: JSON.stringify({ qid: nanoid(), question, username: (isLoaded && isSignedIn) ? user.username : "test" }),
             // })
-            axios.post(`${server}/api/posts`, { qid: nanoid(), question, username: (isLoaded && isSignedIn) ? user.username : "test" })
+            axios.post(`/api/posts`, { qid: nanoid(), question, username: (isLoaded && isSignedIn) ? user.username : "test" })
                 .then((res) => {
                     console.log(res);
                     console.log(res.data);
