@@ -3,7 +3,7 @@ import Layout from '@/components/Layout'
 import { ClerkProvider, SignedIn, SignedOut, RedirectToSignIn } from '@clerk/nextjs'
 import { useRouter } from 'next/router'
 import { dark } from '@clerk/themes'
-const publicPaths = ['/','/login']
+const publicPaths = ['/','/login','/api*']
 
 export default function App({ Component, pageProps }) {
   const { pathname } = useRouter();
